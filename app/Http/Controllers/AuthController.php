@@ -48,7 +48,7 @@ class AuthController extends Controller
                             'OTP' => $otp
                         ];
                         $user->update(['last_OTP' => $otp]);
-                        Mail::to('hyeonsoft46@gmail.com')->send(new SendOtp($data));
+                        Mail::to('devyanshi.hyeoninfotech@gmail.com')->send(new SendOtp($data));
                         $data = [
                             'email' => $request->email,
                             'password' => $request->password,

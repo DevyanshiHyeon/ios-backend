@@ -22,7 +22,12 @@ class App extends Model
     'force_update_version',
     'live_version',
     'intertial_gap_count',
-    'intertial_initial_count'
+    'intertial_initial_count',
+    'subscription1',
+    'subscription2',
+    'subscription3',
+    'subscription4',
+    'subscription5',
     ];
     public function advertisementTypes()
     {

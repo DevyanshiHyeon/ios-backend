@@ -88,6 +88,54 @@
                             @enderror
                         </div>
                     </div>
+
+                    {{-- //subscription --}}
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Subscription1</label>
+                            <input type="text" class="form-control" name="subscription1" placeholder="Subscription1" @if(isset($app->id)) value="{{$app->subscription1}}" @endif required>
+                            @error('subscription1')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Subscription2</label>
+                            <input type="text" class="form-control" name="subscription2" placeholder="Subscription2" @if(isset($app->id)) value="{{$app->subscription2}}" @endif required>
+                            @error('subscription2')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Subscription3</label>
+                            <input type="text" class="form-control" name="subscription3" placeholder="Subscription3" @if(isset($app->id)) value="{{$app->subscription3}}" @endif required>
+                            @error('subscription3')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Subscription4</label>
+                            <input type="text" class="form-control" name="subscription4" placeholder="Subscription4" @if(isset($app->id)) value="{{$app->subscription4}}" @endif required>
+                            @error('subscription4')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Subscription5</label>
+                            <input type="text" class="form-control" name="subscription5" placeholder="Subscription5" @if(isset($app->id)) value="{{$app->subscription5}}" @endif required>
+                            @error('subscription5')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
                     
                     <div class="col-md-6">
                         <button type="submit" class="btn btn-primary">Submit</button>

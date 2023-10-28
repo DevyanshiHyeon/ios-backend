@@ -55,8 +55,12 @@ class AppController extends Controller
             'force_update_version' => 'required|numeric',
             'live_version' => 'required|numeric',
             'intertial_gap_count' => 'required|integer',
-            'intertial_initial_count' => 'required|integer'
-            
+            'intertial_initial_count' => 'required|integer',
+            'subscription1' => 'required',
+            'subscription2' => 'required',
+            'subscription3' => 'required',
+            'subscription4' => 'required',
+            'subscription5' => 'required',
         ]);
         $app = App::create(
             [
@@ -66,6 +70,11 @@ class AppController extends Controller
                 'live_version' => $request->live_version,
                 'intertial_gap_count' => $request->intertial_gap_count,
                 'intertial_initial_count' => $request->intertial_initial_count,
+                'subscription1' => $request->subscription1,
+                'subscription2' => $request->subscription2,
+                'subscription3' => $request->subscription3,
+                'subscription4' => $request->subscription4,
+                'subscription5' => $request->subscription5,
             ]
         );
         if ($app) {
@@ -99,8 +108,12 @@ class AppController extends Controller
             'force_update_version' => 'required|numeric',
             'live_version' => 'required|numeric',
             'intertial_gap_count' => 'required|integer',
-            'intertial_initial_count' => 'required|integer'
-            
+            'intertial_initial_count' => 'required|integer',
+            'subscription1' => 'required',
+            'subscription2' => 'required',
+            'subscription3' => 'required',
+            'subscription4' => 'required',
+            'subscription5' => 'required',
         ]);
         $app = App::find($app_id);
         $app->update([
@@ -110,6 +123,11 @@ class AppController extends Controller
             'live_version' => $request->live_version,
             'intertial_gap_count' => $request->intertial_gap_count,
             'intertial_initial_count' => $request->intertial_initial_count,
+            'subscription1' => $request->subscription1,
+            'subscription2' => $request->subscription2,
+            'subscription3' => $request->subscription3,
+            'subscription4' => $request->subscription4,
+            'subscription5' => $request->subscription5,
         ]);
         notify()->success('Laravel Notify is awesome!');
         return redirect('apps');
@@ -174,6 +192,12 @@ class AppController extends Controller
                 'intertial_gap_count' => $rawData->intertial_gap_count,
                 'intertial_initial_count' => $rawData->intertial_initial_count,
                 
+                'subscription1' => $rawData->subscription1 ?: '',
+                'subscription2' => $rawData->subscription2 ?: '',
+                'subscription3' => $rawData->subscription3 ?: '',
+                'subscription4' => $rawData->subscription4 ?: '',
+                'subscription5' => $rawData->subscription5 ?: '',
+
                 'Google' => $google ?: '',
                 'facebook' =>  $facebook ?: '',
                 'myads' => $myAds ?: '',
