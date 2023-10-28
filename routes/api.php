@@ -18,4 +18,4 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('application/{app_id}',[AppController::class,'applicationApi']);
+Route::get('application/{bundle_id}',[AppController::class,'applicationApi']);

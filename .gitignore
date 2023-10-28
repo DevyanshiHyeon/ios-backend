@@ -3,6 +3,9 @@
 /public/build
 /public/hot
 /public/storage
+/public/app_icon
+/public/app_image
+/public/img
 /storage/*.key
 /vendor
 .env

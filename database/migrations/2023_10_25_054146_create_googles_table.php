@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('app_id');
             $table->foreign('app_id')->references('id')->on('apps')->onDelete('cascade');
-            $table->string('nativeAds')->nullable();
-            $table->string('interstitialAds')->nullable();
-            $table->string('bannerAds')->nullable();
-            $table->string('addOpenAds')->nullable();
-            $table->string('rewardedAds')->nullable();
+            $table->string('nativeAds')->default('ca-app-pub-3940256099942544/3986624511')->nullable();
+            $table->string('interstitialAds')->default('ca-app-pub-3940256099942544/4411468910')->nullable();
+            $table->string('bannerAds')->default('ca-app-pub-3940256099942544/2934735716')->nullable();
+            $table->string('addOpenAds')->default('ca-app-pub-3940256099942544/5662855259')->nullable();
+            $table->string('rewardedAds')->default('ca-app-pub-3940256099942544/1712485313')->nullable();
             $table->timestamps();
         });
     }

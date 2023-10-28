@@ -15,11 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('bundle_id');
+            $table->json('app_list')->nullable();
             $table->string('app_icon')->nullable();
             $table->string('description')->nullable();
             $table->string('image')->nullable();
             $table->string('link')->nullable();
             $table->string('title')->nullable();
+            $table->boolean('is_ad_on')->default(false);
+            $table->boolean('is_custom_ads_on')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });
