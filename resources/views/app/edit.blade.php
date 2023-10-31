@@ -244,6 +244,17 @@
                             </span>
                             @endif
                         </div>
+                        
+                        <div class="col-md-12  mb-2">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    title
+                                </label>
+                                <div class="" style=""><input type="text" class="form-control" data-id="MyAds" data-attr="title" name="title" data-type="image" @if (isset($adds['MyAds']->title))
+                                    value="{{$adds['MyAds']->title}}"
+                                @endif /></div>
+                            </div>
+                        </div>
                         <div class="col-md-12 mb-2">
                             <div class="form-check">
                                 <label class="form-check-label">
@@ -261,16 +272,6 @@
                                 </label>
                                 <div class="" style=""><input type="text" class="form-control customInput" data-id="MyAds" name="link" data-attr="link" data-type="" @if (isset($adds['MyAds']->link))
                                     value="{{$adds['MyAds']->link}}"
-                                @endif /></div>
-                            </div>
-                        </div>
-                        <div class="col-md-12  mb-2">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    title
-                                </label>
-                                <div class="" style=""><input type="text" class="form-control" data-id="MyAds" data-attr="title" name="title" data-type="image" @if (isset($adds['MyAds']->title))
-                                    value="{{$adds['MyAds']->title}}"
                                 @endif /></div>
                             </div>
                         </div>

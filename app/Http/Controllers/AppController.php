@@ -29,14 +29,21 @@ class AppController extends Controller
             $i = 1;
             $apps = App::select('id', 'name', 'bundle_id')->orderBy('id', 'DESC')->get();
             foreach ($apps as $key => $app) {
+                $myAdd = MyAds::where('app_id',$app->id)->first();
+                $link = $myAdd->link; 
+                if(isset($link)){
+                    $app_name = '<a href="'.$link.'" target="_blank">'.$app->name.'</a>';
+                }else{
+                    $app_name = $app->name;
+                }
                 $data[] = [
                     'id' => $i++,
-                    'name' => $app->name,
+                    'name' => $app_name,
                     'bundle_id' => $app->bundle_id,
                     'action' => '<div class="d-flex"><a href="' . url('apps/edit/' . $app->id) . '" class="btn btn-primary mr-2">Edit</a><a href="' . url('api/application/' . $app->bundle_id) . '" class="btn btn-success" target="_blank">Api Response</a></div>'
                 ];
             }
-            return Datatables::of($data)->rawColumns(['action'])->make(true);
+            return Datatables::of($data)->rawColumns(['name','action'])->make(true);
         }
     }
     function create()
