@@ -56,11 +56,12 @@ class AppController extends Controller
             'live_version' => 'required|numeric',
             'intertial_gap_count' => 'required|integer',
             'intertial_initial_count' => 'required|integer',
-            'subscription1' => 'required',
-            'subscription2' => 'required',
-            'subscription3' => 'required',
-            'subscription4' => 'required',
-            'subscription5' => 'required',
+            // 'subscription1' => 'required',
+            // 'subscription2' => 'required',
+            // 'subscription3' => 'required',
+            // 'subscription4' => 'required',
+            // 'subscription5' => 'required',
+            'native_color' => 'required'
         ]);
         $app = App::create(
             [
@@ -75,6 +76,7 @@ class AppController extends Controller
                 'subscription3' => $request->subscription3,
                 'subscription4' => $request->subscription4,
                 'subscription5' => $request->subscription5,
+                'native_color' => $request->native_color,
             ]
         );
         if ($app) {
@@ -109,11 +111,12 @@ class AppController extends Controller
             'live_version' => 'required|numeric',
             'intertial_gap_count' => 'required|integer',
             'intertial_initial_count' => 'required|integer',
-            'subscription1' => 'required',
-            'subscription2' => 'required',
-            'subscription3' => 'required',
-            'subscription4' => 'required',
-            'subscription5' => 'required',
+            // 'subscription1' => 'required',
+            // 'subscription2' => 'required',
+            // 'subscription3' => 'required',
+            // 'subscription4' => 'required',
+            // 'subscription5' => 'required',
+            'native_color' => 'required',
         ]);
         $app = App::find($app_id);
         $app->update([
@@ -128,8 +131,9 @@ class AppController extends Controller
             'subscription3' => $request->subscription3,
             'subscription4' => $request->subscription4,
             'subscription5' => $request->subscription5,
+            'native_color' => $request->native_color,
         ]);
-        notify()->success('Laravel Notify is awesome!');
+        notify()->success('Apps Update Successfully!');
         return redirect('apps');
     }
     function applicationApi($bundle_id)
@@ -186,7 +190,7 @@ class AppController extends Controller
                 'is_custom_ads_on' => $rawData->is_custom_ads_on,
                 'name' => $rawData->name ?: '',
                 'bundle_id' => $rawData->bundle_id ?: '',
-                
+                'native_color_code' => $rawData->native_color ?: '',
                 'force_update_version' => $rawData->force_update_version,
                 'live_version' => $rawData->live_version,
                 'intertial_gap_count' => $rawData->intertial_gap_count,

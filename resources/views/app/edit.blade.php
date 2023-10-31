@@ -136,7 +136,15 @@
                             @enderror
                         </div>
                     </div>
-                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Native Color Code</label>
+                            <input type="color" class="form-control" name="native_color" @if(isset($app->id)) value="{{$app->native_color}}" @endif required>
+                            @error('native_color')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
                     <div class="col-md-6">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>

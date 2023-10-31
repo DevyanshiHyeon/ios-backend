@@ -28,6 +28,7 @@ class App extends Model
     'subscription3',
     'subscription4',
     'subscription5',
+    'native_color'
     ];
     public function advertisementTypes()
     {
