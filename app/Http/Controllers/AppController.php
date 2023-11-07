@@ -98,7 +98,7 @@ class AppController extends Controller
     {
         if(Auth::check()){
             $app = App::find($app_id);
-            $google = Google::where('app_id', $app_id)->select('nativeAds', 'interstitialAds', 'bannerAds', 'addOpenAds', 'rewardedAds')->first();
+            $google = Google::where('app_id', $app_id)->select('nativeAds', 'interstitialAds', 'bannerAds', 'addOpenAds', 'rewardedAds','nativeAds_status', 'interstitialAds_status', 'bannerAds_status', 'addOpenAds_status', 'rewardedAds_status')->first();
             $facebook = Facebook::where('app_id', $app_id)->select('nativeAds', 'interstitialAds', 'bannerAds', 'addOpenAds', 'rewardedAds')->first();
             $myAds = MyAds::where('app_id', $app_id)->select('nativeAds', 'interstitialAds', 'bannerAds', 'addOpenAds', 'rewardedAds', 'app_icon','image', 'description', 'link', 'title')->first();
             $adds = ['Google' => $google, 'Facebook' => $facebook, 'MyAds' => $myAds];
@@ -126,7 +126,7 @@ class AppController extends Controller
             'native_color' => 'required',
         ]);
         $app = App::find($app_id);
-        $app->update([
+        $update = $app->update([
             'name' => $request->name,
             'bundle_id' => $request->bundle_id,
             'force_update_version' => $request->force_update_version,
@@ -140,8 +140,9 @@ class AppController extends Controller
             'subscription5' => $request->subscription5,
             'native_color' => $request->native_color,
         ]);
-        notify()->success('Apps Update Successfully!');
-        return redirect('apps');
+        if($update){
+            return response()->json(['msg' => 'Data updated successfully']);
+        }
     }
     function applicationApi($bundle_id)
     {

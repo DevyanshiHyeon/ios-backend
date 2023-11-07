@@ -84,4 +84,20 @@ class AdvertisementController extends Controller
             return response()->json(['msg' => 'Ads Data updated successfully']);
         }
     }
+    function changeGoogleVariableStatus(Request $request,$variableName,$app_id){
+        $variableName = lcfirst($variableName);
+        $googleData = Google::where('app_id',$app_id)->first();
+        $clmName = $variableName.'_status';
+        if($googleData->$clmName == true){
+            $change = false;
+        }else{
+            $change = true;
+        }
+        $update = $googleData->update([
+            $clmName => $change
+        ]);
+        if($update){
+            return response()->json(['msg' => 'Google Data updated successfully']);
+        }
+    }
 }

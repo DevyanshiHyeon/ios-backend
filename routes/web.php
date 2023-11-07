@@ -42,3 +42,4 @@ Route::post('save-google-data/{app_id}',[AdvertisementController::class,'saveGoo
 Route::post('save-myAds-data/{app_id}',[AdvertisementController::class,'saveMyAdsData']);
 Route::any('update-app-list-Myads/{app_id}',[AdvertisementController::class,'updateAppListMyads']);
 Route::any('change-add-status/{app_id}',[AdvertisementController::class,'changeAddStatus']);
+Route::any('change-google-variable-status/{variableName}/{app_id}',[AdvertisementController::class,'changeGoogleVariableStatus']);
